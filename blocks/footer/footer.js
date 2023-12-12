@@ -10,7 +10,8 @@ export default async function decorate(block) {
   block.textContent = '';
 
   // load footer fragment
-  const footerPath = footerMeta.footer || '/footer';
+  const path = `/${window.location.pathname.split('/')[1]}`;
+  const footerPath = footerMeta.footer || path.concat('/footer');
   const fragment = await loadFragment(footerPath);
 
   // decorate footer DOM
